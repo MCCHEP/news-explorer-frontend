@@ -1,0 +1,107 @@
+.popup {
+  z-index: 1000;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: visibility 0.5s, opacity 0.5s ease;
+}
+
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__close-button {
+  margin-right: -40px;
+  align-self: flex-end;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background-image: url("../../images/close-icon.svg");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.popup__close-button:hover {
+  opacity: 0.6;
+}
+
+.popup__content {
+  max-width: 430px;
+  width: 75vw;
+  display: flex;
+  padding: 0 36px;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+}
+.popup__title {
+  margin: 34px 0 22px;
+  align-self: flex-start;
+  font-family: "Roboto Bold";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  color: #1a1b22;
+}
+
+.popup__title_success {
+  margin: 43px 0 14px;
+}
+
+.popup__redirect-button {
+  margin-bottom: 51px;
+  padding: 0;
+  align-self: start;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: "Inter", "Arial", sans-serif;
+  background: none;
+  border: none;
+  color: #2f71e5;
+}
+
+@media screen and (max-width: 740px) {
+  .popup__content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 0 16px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+  }
+
+  .popup__close-button {
+    margin-right: 16px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../../images/close.svg');
+  }
+}

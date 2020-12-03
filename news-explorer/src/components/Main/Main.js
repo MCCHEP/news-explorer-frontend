@@ -1,38 +1,21 @@
-function Main() {
+import SearchForm from '../SearchForm/SearchForm';
+import NewsCardList from '../NewsCardList/NewsCardList';
+import { mainArticles } from "../../utils/data";
+import About from '../About/About';
+import Header from '../Header/Header';
+import './Main.css';
+
+function Main(props) {
     return (
+      <>
+      <Header currentPage="main" loggedIn={props.loggedIn} handleLogout={props.handleLogout} handleLogin={props.handleLogin}>
+        <SearchForm/>
+      </Header>
       <main>
-          This is Main
-          <section>
-            <h1>Что творится в мире?</h1>
-            <p>Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-              <form>
-                  <input></input>
-                  <button>Search</button>
-              </form>
-          </section>
-          <section>
-              <h2>Результаты поиска</h2>
-              <ul>
-                  <li>
-                  <button></button>
-                  <image></image>
-                  <div>
-                  <span>2 августа, 2019</span>
-                  <h3>Национальное достояние – парки</h3>
-                  <p>В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, 
-                  где и сегодня каждый может приобщиться к природе.</p>
-                  <span>Лента.ру</span>
-                  </div>
-                  </li>
-              </ul>
-          </section>
-          <section>
-              <image src=""></image>
-              <h2>Об авторе</h2>
-              <p>Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-              <p>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
-          </section>
+        <NewsCardList articles={mainArticles} title="Результаты поиска" loggedIn={props.loggedIn} currentPage="main" tooltip="Войдите, чтобы сохранять статьи"/>  
+        <About/>
       </main>
+      </>
     );
   }
   
