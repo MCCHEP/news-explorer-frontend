@@ -1,5 +1,4 @@
 .news-card {
-  max-width: 272px;
   display: flex;
   position: relative;
   border-radius: 10px;
@@ -211,6 +210,7 @@
 @media screen and (max-width: 1025px) {
   .news-card {
     height: 420px;
+    max-width: 272px;
   }
 
   .news-card__image {
