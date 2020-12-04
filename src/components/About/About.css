@@ -72,11 +72,6 @@
     justify-self: center;
     place-self: center;
   }
-  
-  .about__title {  
-    margin-block-start: 0;
-    margin-block-end: 0;
-  }
 
   .about__text-container {
     margin-bottom: 40px;
