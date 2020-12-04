@@ -115,7 +115,7 @@ function RegisterPopup(props) {
           name="regName"
           id="regName-input"
           className="form__input form__input_type_name"
-          type=""
+          type="text"
           placeholder="Введите имя"
           minLength="2"
           maxLength="200"
