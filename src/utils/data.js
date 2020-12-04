@@ -49,7 +49,7 @@ export const savedArticles =  [
           "keyword": "Stocks",
           "link": "https://www.marketwatch.com/story/european-stocks-and-u-s-futures-edge-higher-despite-lockdown-extensions-and-astrazeneca-vaccine-concerns-11606472073",
           "image": "https://images.mktw.net/im-265257/social",
-          "date": "2020-11-27T10:14:00Z",
+          "date": "26 ноября, 2020",
           "text": "European stocks were mixed early on Friday as investors digested the extension of COVID-19 restrictions across the continent and concerns over AstraZenecas vaccine candidate.The pan-European Stoxx 60"
       },
       {
@@ -58,7 +58,7 @@ export const savedArticles =  [
           "keyword": "Mandalorian",
           "link": "https://deadline.com/2020/11/the-mandalorian-recap-ahsoka-tano-rosario-dawson-baby-yoda-backstory-spoilers-grogu-1234622488/",
           "image": "https://deadline.com/wp-content/uploads/2020/11/ahsoka-tano-e1606469536359.jpg?w=1024",
-          "date": "2020-11-27T10:08:00Z",
+          "date": "26 ноября, 2020",
           "text": "Warning: This recap has spoilers about today’s Disney+ drop of The Mandalorian Chapter 13: “The Jedi”, directed and written by Dave Filoni\r\nChristmas came early to Star Wars fans as Rosario Dawson"
       },
       {
@@ -67,7 +67,7 @@ export const savedArticles =  [
           "keyword": "Redmi",
           "link": "https://www.theverge.com/2020/11/27/21722290/redmi-watch-xiaomi-announced-price-release-date-mi-lite",
           "image": "https://cdn.vox-cdn.com/thumbor/VwrGWLZgRNIFZigiImtcNu8LKww=/0x75:1050x625/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22124883/redmi_watch.jpg",
-          "date": "2020-11-27T08:19:24Z",
+          "date": "26 ноября, 2020",
           "text": "It could be coming elsewhere as a Xiaomi-branded watch\r\nXiaomis budget sub-brand Redmi has never released a smartwatch before, and its first entry turns out to be what youd expect: a pretty "
       },   
       {
@@ -76,7 +76,7 @@ export const savedArticles =  [
           "keyword": "WHO",
           "link": "https://en.as.com/en/2020/11/27/latest_news/1606443012_327828.html",
           "image": "https://as01.epimg.net/en/imagenes/2020/11/27/latest_news/1606443012_327828_1606443131_noticia_normal.jpg",
-          "date": "2020-11-27T02:10:12Z",
+          "date": "26 ноября, 2020",
           "text": "The World Health Organization (WHO) is optimistic about the evolution of the different vaccines in bringing an end to the covid-19 pandemic. The director general of the organization, Tedros Adhanom "
       },
       {
@@ -85,7 +85,7 @@ export const savedArticles =  [
         "keyword": "Black Friday",
         "link": "https://www.usatoday.com/story/money/shopping/2020/11/27/black-friday-store-hours-2020-coronavirus/6411372002/",
         "image": "https://www.gannett-cdn.com/presto/2020/11/23/PSAT/9f78ca90-552e-4cc8-91c2-5ca73415bb7b-1.jpg?crop=2199,1237,x0,y52&width=1600&height=800&fit=bounds",
-        "date": "2020-11-27T05:03:45Z",
+        "date": "26 ноября, 2020",
         "text": "While Black Friday may look a little different this month, these services help find deep discounts at retail stores and online.\r\nUSA TODAY\r\nFewer shoppers are expected to head into stores this Black"
     }
   ];
