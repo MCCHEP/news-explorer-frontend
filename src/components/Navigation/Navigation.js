@@ -1,9 +1,12 @@
+import React from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import logoPath from "../../images/logout-bt.svg";
 import blackLogoPath from "../../images/logout-bt-bl.svg";
 import "./Navigation.css";
 
 function Navigation(props) {
+  const currentUser = React.useContext(CurrentUserContext);
   const mainLinkClassName = (
     `nav__link ${
       props.currentPage === "main"
@@ -54,7 +57,7 @@ function Navigation(props) {
             }`}
             onClick={props.handleLogout}
           >
-            <span>Грета</span>
+            <span>{currentUser.name}</span>
             <img
               className="nav__button-icon"
               src={(props.currentPage !== "main") && !props.isMenuOpen ? blackLogoPath : logoPath}

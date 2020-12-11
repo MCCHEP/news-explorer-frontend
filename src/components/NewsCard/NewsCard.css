@@ -1,4 +1,5 @@
 .news-card {
+  max-width: 400px;
   display: flex;
   position: relative;
   border-radius: 10px;
@@ -8,6 +9,8 @@
 
 .news-card__link {
   height: 100%;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -24,6 +27,7 @@
 
 .news-card__text-container {
   height: 100%;
+  width: 90%;
   padding: 20px 24px 24px;
   display: flex;
   flex-wrap: nowrap;
@@ -207,10 +211,16 @@
   -webkit-box-orient: vertical;
 }
 
+@media screen and (max-width: 1281px) {
+  .news-card {
+    max-width: 350px;
+  }
+}
+
 @media screen and (max-width: 1025px) {
   .news-card {
     height: 420px;
-    max-width: 272px;
+    max-width: 224px;
   }
 
   .news-card__image {
@@ -258,6 +268,7 @@
 @media screen and (max-width: 740px) {
   .news-card {
     height: 446px;
+    max-width: 288px;
   }
 
   .news-card__image {

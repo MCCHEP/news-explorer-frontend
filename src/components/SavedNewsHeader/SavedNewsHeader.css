@@ -39,6 +39,7 @@
   font-family: "Roboto Bold";
   font-style: normal;
   font-weight: normal;
+  text-transform: capitalize;
 }
 
 @media screen and (max-width: 1025px) {

@@ -1,9 +1,11 @@
+import { MONTH_ABBREVIATIONS } from "./constants";
 class DateConverter {
-  constructor() {
+  constructor(monthabbr) {
     this._hoursInDay = 24;
     this._minutesInHour = 60;
     this._secondsInMinute = 60;
     this._millisecondsInSecond = 1000;
+    this._months = monthabbr;
   }
 
   _addLeadingZero(number) {
@@ -11,7 +13,7 @@ class DateConverter {
   }
 
   formatDateUSA(dateObject) {
-    return `${dateObject.getFullYear()}-${this.__addLeadingZero(dateObject.getMonth())}-${this.__addLeadingZero(dateObject.getDate())}`;
+    return `${dateObject.getFullYear()}-${this._addLeadingZero(dateObject.getMonth())}-${this._addLeadingZero(dateObject.getDate())}`;
   }
 
   convertDaystoMilliseconds(numberOfDays) {
@@ -22,6 +24,11 @@ class DateConverter {
       this._secondsInMinute *
       this._millisecondsInSecond
     );
+  }
+
+  convertDateFromString(string) {
+    let dateFromString = new Date(Date.parse(string));
+    return `${dateFromString.getDate()} ${this._months[dateFromString.getMonth()]}, ${dateFromString.getFullYear()}`
   }
 
   getDataGap(numberOfDays) {
@@ -36,4 +43,4 @@ class DateConverter {
   }
 }
 
-export default new DateConverter();
+export default new DateConverter(MONTH_ABBREVIATIONS);

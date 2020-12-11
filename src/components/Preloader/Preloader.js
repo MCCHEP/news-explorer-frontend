@@ -1,18 +1,17 @@
 import "./Preloader.css";
-import { useState } from "react";
 import notFoundLogoPath from "../../images/not-found.svg";
 
-function Preloader() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+function Preloader(props) {
+
   return (
     <div className="preloader">
-      {isLoaded && isSuccess === false ? (
+      {props.isLoading === false && props.isSuccess === false ? (
         <>
           <img className="preloader__not-found-icon" src={notFoundLogoPath} alt=""></img>
-          <span className="preloader__not-found-title">Ничего не найдено</span>
+          <span className="preloader__not-found-title">{ props.serverError ? 'Во время запроса произошла ошибка.' : 'Ничего не найдено'}</span>
           <span className="preloader__text">
-            К сожалению по вашему запросу ничего не найдено.
+          { props.serverError ? 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз' : 'К сожалению по вашему запросу ничего не найдено.'}
+            
           </span>
         </>
       ) : (

@@ -1,52 +1,20 @@
 import React from "react";
-
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 function AuthPopup(props) {
-  const [authEmail, setAuthEmail] = React.useState("");
-  const [authPassword, setAuthPassword] = React.useState("");
-  const [emailError, setEmailError] = React.useState("");
-  const [passwordError, setPasswordError] = React.useState("");
-  const [isDisabled, setIsDisabled] = React.useState(true);
-
-  const handleEmailChange = (e) => {
-    setAuthEmail(e.target.value);
-    checkInputValidity();
-  };
-  const handlePasswordChange = (e) => {
-    setAuthPassword(e.target.value);
-    checkInputValidity();
-  };
-
+  const {values, errors, isValid, handleChange,  resetForm} = useFormWithValidation();
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.onSubmit(values.authEmail, values.authPassword);
     props.onClose();
-    props.onSubmit();
-    setEmailError("");
-    setPasswordError("");
-    setEmailError("");
-    setPasswordError("");
+    
   };
 
-  const checkInputValidity = () => {
-    const emailInp = document.getElementById("authEmail-input");
-    const passwordInp = document.getElementById("authPassword-input");
-    if (!emailInp.checkValidity() && emailInp.value !== "") {
-      setEmailError(emailInp.validationMessage);
-      setIsDisabled(true);
-    } else {
-      setEmailError("");
-    }
-    if (!passwordInp.checkValidity() && passwordInp.value !== "") {
-      setPasswordError(passwordInp.validationMessage);
-      setIsDisabled(true);
-    } else {
-      setPasswordError("");
-    }
-    if (emailInp.checkValidity() && passwordInp.checkValidity()) {
-      setIsDisabled(false);
-    }
-  };
+  React.useEffect(() => {
+    resetForm();
+  },[props.isOpen, resetForm])
 
   return (
     <PopupWithForm
@@ -66,12 +34,12 @@ function AuthPopup(props) {
           placeholder="Введите почту"
           minLength="2"
           maxLength="40"
-          value={authEmail}
-          onChange={handleEmailChange}
+          value={values.authEmail || ""}
+          onChange={handleChange}
           required
         />
         <span id="authEmail-input-error" className="form__input-error">
-          {emailError}
+        {errors.authEmail || ""}
         </span>
       </label>
       <label className="form__label">
@@ -84,18 +52,18 @@ function AuthPopup(props) {
           placeholder="Введите пароль"
           minLength="2"
           maxLength="200"
-          value={authPassword}
-          onChange={handlePasswordChange}
+          value={values.authPassword || ""}
+          onChange={handleChange}
           required
         />
         <span id="authPassword-input-error" className="form__input-error">
-          {passwordError}
+        {errors.authPassword || ""}
         </span>
       </label>
       <button
-        className={`form__submit-button ${ isDisabled ? 'form__submit-button_disabled': ''}`}
+        className={`form__submit-button ${ !isValid ? 'form__submit-button_disabled': ''}`}
         type="submit"
-        disabled={isDisabled}
+        disabled={!isValid}
       >
         Войти
       </button>
