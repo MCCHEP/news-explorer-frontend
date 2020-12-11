@@ -1,69 +1,20 @@
 import React from "react";
-
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
 function RegisterPopup(props) {
-  const [regEmail, setRegEmail] = React.useState("");
-  const [regPassword, setRegPassword] = React.useState("");
-  const [regName, setRegName] = React.useState("");
-  const [emailRegError, setEmailRegError] = React.useState("");
-  const [passwordRegError, setPasswordRegError] = React.useState("");
-  const [nameRegError, setNameRegError] = React.useState("");
-  const [isDisabled, setIsDisabled] = React.useState(true);
-
-  const handleEmailChange = (e) => {
-    setRegEmail(e.target.value);
-    checkInputValidity();
-  };
-
-  const handlePasswordChange = (e) => {
-    setRegPassword(e.target.value);
-    checkInputValidity();
-  };
-
-  const handleNameChange = (e) => {
-    setRegName(e.target.value);
-    checkInputValidity();
-  };
+  const {values, errors, isValid, handleChange,  resetForm} = useFormWithValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onClose();
-    props.onSubmit();
-    setEmailRegError("");
-    setPasswordRegError("");
-    setRegEmail("");
-    setRegPassword("");
-  };
-
-  const checkInputValidity = () => {
-    const emailInp = document.getElementById("regEmail-input");
-    const passwordInp = document.getElementById("regPassword-input");
-    const nameInp =  document.getElementById("regName-input");
-    if (!emailInp.checkValidity() && emailInp.value !== "") {
-      setEmailRegError(emailInp.validationMessage);
-      setIsDisabled(true);
-    } else {
-      setEmailRegError("");
-    }
-    if (!passwordInp.checkValidity() && passwordInp.value !== "") {
-      setPasswordRegError(passwordInp.validationMessage);
-      setIsDisabled(true);
-    } else {
-      setPasswordRegError("");
-    }
-
-    if (!nameInp.checkValidity() && nameInp.value !== "") {
-      setNameRegError(nameInp.validationMessage);
-      setIsDisabled(true);
-    } else {
-      setNameRegError("");
-    }
     
-    if (emailInp.checkValidity() && passwordInp.checkValidity() && nameInp.checkValidity()) {
-      setIsDisabled(false);
-    }
+    props.onSubmit(values.regEmail, values.regPassword, values.regName);
+   
   };
+
+  React.useEffect(() => {
+    resetForm();
+  },[props.isOpen, resetForm])
 
 
   return (
@@ -84,11 +35,11 @@ function RegisterPopup(props) {
           placeholder="Введите почту"
           minLength="2"
           maxLength="40"
-          value={regEmail}
-          onChange={handleEmailChange}
+          value={values.regEmail || ""}
+          onChange={handleChange}
           required
         />
-        <span id="regEmail-input-error" className="form__input-error">{emailRegError}</span>
+        <span id="regEmail-input-error" className="form__input-error">{errors.regEmail || ""}</span>
       </label>
       <label className="form__label">
       <span className="form__label-text">Пароль</span>
@@ -100,14 +51,14 @@ function RegisterPopup(props) {
           placeholder="Введите пароль"
           minLength="2"
           maxLength="200"
-          value={regPassword}
-          onChange={handlePasswordChange}
+          value={values.regPassword || ""}
+          onChange={handleChange}
           required
         />
         <span
           id="regPassword-input-error"
           className="form__input-error"
-        >{passwordRegError}</span>
+        >{errors.regPassword || ""}</span>
       </label>
       <label className="form__label">
       <span className="form__label-text">Имя</span>
@@ -119,19 +70,20 @@ function RegisterPopup(props) {
           placeholder="Введите имя"
           minLength="2"
           maxLength="200"
-          value={regName}
-          onChange={handleNameChange}
+          value={values.regName || ""}
+          onChange={handleChange}
           required
         />
         <span
           id="regName-input-error"
           className="form__input-error"
-        >{nameRegError}</span>
+        >{errors.regName || ""}</span>
       </label>
+      <span id="server-error" className="form__server-error">{props.serverError}</span>
       <button
-        className={`form__submit-button ${ isDisabled ? 'form__submit-button_disabled': ''}`}
+        className={`form__submit-button ${ !isValid ? 'form__submit-button_disabled': ''}`}
         type="submit"
-        disabled={isDisabled}
+        disabled={!isValid}
       >
         Зарегистрироваться
       </button>

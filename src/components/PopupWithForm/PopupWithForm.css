@@ -83,12 +83,33 @@
   background-color: #e6e8eb;
   color: #b6bcbf;
   box-shadow: none;
+  cursor: not-allowed;
+}
+
+.form__submit-button_disabled:hover {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  box-shadow: none;
 }
 
 .form__input-error {
   position: absolute;
   top: 52px;
   left: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.form__server-error {
+  text-align: center;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;

@@ -6,26 +6,23 @@ import Preloader from '../Preloader/Preloader';
 function NewsCardList(props) {
   return (
     <section className="search-results">
-      { props.title && props.articles ? <h2 className="search-results__header"> {props.title} </h2> : ''}
-      { props.articles ? <ul className="news-card-list">
-        {props.articles.map((element, index) => {
+      { props.isSearchSuccessfull ? <h2 className="search-results__header"> {props.title} </h2> : ''}
+      { props.isSearchSuccessfull ? <ul className="news-card-list">
+        {props.articles.slice(0, props.resultsSplitter).flat(1).map((element, index) => {
           return <NewsCard
-          keyword={element.keyword}
+          data={element}
           tooltip={props.tooltip}
           currentPage={props.currentPage}
           loggedIn={props.loggedIn}
+          handleSaveArticle={props.handleSaveArticle}
+          handleDeleteArticle={props.handleDeleteArticle}
+          askToRegister={props.askToRegister}
           key={index}
-          link={element.link}
-          image={element.image}
-          date={element.date}
-          title={element.title}
-          text={element.text}
-          source={element.source}
         />
         })}
-      </ul> : <Preloader />
+      </ul> : <Preloader isLoading={props.isResultsLoading}  isSuccess={props.isSearchSuccessfull} serverError={props.serverError}/>
       }
-      { props.title && props.articles ?  <button className="search-results__button">Показать еще</button> : ''}
+      { props.isSearchSuccessfull && props.articles.length > 1 && props.resultsSplitter !== props.articles.length ?  <button className="search-results__button" onClick={props.handleShowMore}>Показать еще</button> : ''}
     </section>
   );
 }
