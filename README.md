@@ -1,3 +1,9 @@
 # News-explorer - фронтентд на Реакте
 
-Пока готова только верстка
+Ссылка на сайт:
+
+https://www.news-explorer-mc.ru/
+
+Ссылка на апи
+
+https://api.news-explorer-mc.ru/
