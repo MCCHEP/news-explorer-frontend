@@ -1,5 +1,5 @@
 const proxyUrl = 'https://nomoreparties.co/news/v2/';
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://api.news-explorer-mc.ru";
 const defaultType = 'application/json';
 const myApiKey = 'e14629246eb5421897f31483d5bc6694';
 const pageSize = 100;
