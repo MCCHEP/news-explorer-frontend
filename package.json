@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/* root@194.58.108.97:/home/news-explorer-frontend"
+    "deploy": "npm run build && scp -r ./build/* root@194.58.108.97:/home/news-explorer/news-explorer-frontend"
   },
   "eslintConfig": {
     "extends": [
